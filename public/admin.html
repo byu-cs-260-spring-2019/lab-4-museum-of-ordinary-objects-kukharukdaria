@@ -10,10 +10,72 @@
 <body>
   <div id="admin" class="content">
     <h1>Museum of Ordinary Objects: The Admin Page!</h1>
+    <div class="heading">
+      <div class="circle">1</div>
+      <h2>Add an Item</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <input v-model="title" placeholder="Title">
+        <input v-model="description" placeholder="Description">
+        <p></p>
+        <select v-model="selected">
+          <option disabled value="">Please select one to add</option>
+          <option v-for="photo in photos" :key="photo.id" :value="photo">{{photo.name}}</option>
+        </select>
+        <button @click="addNewItem">Add Item</button>
+      </div>
+      <div class="upload" v-if="addItem">
+        <h2>{{addItem.title}}</h2>
+        <h3 id="description">{{addItem.description}}</h3>
+        <img :src="addItem.path" />
+      </div>
+
+    </div>
+    <!-- DELETE ITEM -->
+
+    <div class="heading">
+      <div class="circle">2</div>
+      <h2>Edit/Delete an Item</h2>
+    </div>
+    <div class="edit">
+      <div class="form">
+        <input v-model="findTitle" placeholder="Search">
+        <div class="suggestions" v-if="suggestions.length > 0">
+          <div class="suggestion" v-for="s in suggestions" @click="selectItem(s)">{{s.title}}
+          </div>
+        </div>
+      </div>
+      <div class="upload" v-if="findItem">
+        <p id="mine">Title:</p>
+        <input v-model="findItem.title">
+        <p id="mine">Description:</p>
+        <input v-model="findItem.description">
+        <p></p>
+        <img :src="findItem.path" />
+      </div>
+      <div class="actions" v-if="findItem">
+        <button @click="editItem(findItem)">Edit</button>
+        <button @click="deleteItem(findItem)">Delete</button>
+      </div>
+    </div>
+
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"
+    integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js"
+    integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
   <script src="/admin.js"></script>
+
+  <footer><img id="git"
+      src="https://firebasestorage.googleapis.com/v0/b/cs260projects-e285c.appspot.com/o/download-1.png?alt=media&token=fa7bc746-efe1-4e90-879e-8605fb99cea5"
+      width="50" height="50"
+      onclick="window.location.href = 'https://github.com/byu-cs-260-spring-2019/lab-4-museum-of-ordinary-objects-kukharukdaria'" />
+  </footer>
 </body>
 
 </html>

@@ -18,7 +18,27 @@ body {
   margin-top: 10px;
 }
 
-.title h1, .title h2 {
+#description{
+  margin: 0px;
+  font-style: italic;
+  font-size: 1em;
+  margin-left: 10px;
+  color: rgb(114, 114, 114);
+}
+
+#mine{
+  margin: 0px;
+  margin-top: 2px;
+}
+
+#git{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.title h1, .title h2, .title h3 {
   margin: 0px;
 }
 
@@ -41,7 +61,7 @@ body {
   padding: 20px 100px 0px 100px;
 }
 
-.image h2 {
+.image h2, .image h3 {
   font-style: italic;
   font-size: 1em;
 }
@@ -53,7 +73,7 @@ body {
   margin-top: 20px;
 }
 
-.heading h2 {
+.heading h2, .heading h3 {
   margin: 0px;
   margin-left: 10px;
 }
@@ -83,7 +103,7 @@ input, textarea, select, button {
 }
 
 /* Uploaded images */
-.upload h2 {
+.upload h2, .upload h3 {
   margin: 0px;
 }
 
